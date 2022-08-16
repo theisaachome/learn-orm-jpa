@@ -44,5 +44,7 @@
 		<module>002-jpa-id</module>
 		<module>003-jpa-collection-mapping</module>
 		<module>004-oop-inheritance</module>
+		<module>005-jpa-relationship-mapping</module>
+		<module>006-jpa-one-to-one</module>
 	</modules>
 </project>
