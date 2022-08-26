@@ -57,6 +57,6 @@
 		<module>001-jpa-basic</module>
 		<module>002-jpa-ids-generators</module>
 		<module>003-jpa-enum-and-temporal</module>
-		<module>000-project-template</module>
+		<module>004-jpa-secondary-tables</module>
 	</modules>
 </project>
