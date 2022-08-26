@@ -1,0 +1,28 @@
+/.metadata/
+.DB_Store
+.settings
+
+
+/bin
+/.classpath
+/.project
+/.settings
+/target
+
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
