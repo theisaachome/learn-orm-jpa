@@ -14,10 +14,10 @@ import lombok.Data;
 
 
 @Data
-@Entity
 public class ConferenceEvent implements Serializable {
 
-	@Id
+	private static final long serialVersionUID = 1L;
+//	@Id
 //	@GenericGenerator(
 //			name = "uuid",
 //			strategy = "org.hibernate.id.UUIDHEXGenerator",
