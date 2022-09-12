@@ -10,4 +10,7 @@ import com.isaachome.model.Model;
 public interface ModelRepo extends JpaRepository<Model, Integer> {
 
 	List<Model> findByPriceGreaterThanEqualAndPriceLessThanEqual(BigDecimal low,BigDecimal high);
+	List<Model> findByModelTypeNameIn(List<String> types);
+	
+	List<Model> findByModelTypeName(String type);
 }

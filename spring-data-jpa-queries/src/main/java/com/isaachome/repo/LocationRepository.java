@@ -16,6 +16,12 @@ public interface LocationRepository extends JpaRepository<Location, Long>{
 	
 	List<Location> findByStateIgnoreCaseStartingWith(String stateName);
 	List<Location> findByStateStartingWith(String stateName); // params => "A";  no more %
+	List<Location> findByStateStartingWithIgnoreCase(String startName);
+	List<Location> findByStateIgnoreCase(String stateName);
+	
+	List<Location> findByStateOrderByCountryAsc(String stateName);
+	List<Location> findByStateOrderByCountryDesc(String stateName);
+	
 	
 	List<Location> findByStateIgnoreCaseEndingWith(String stateName);
 	

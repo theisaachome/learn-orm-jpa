@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
@@ -31,6 +32,7 @@ public class Model {
 	private Manufacturer manufacturer;
 
 	@ManyToOne
+	@JoinColumn(name = "modeltype_id")
 	private ModelType modelType;
 	
 }
