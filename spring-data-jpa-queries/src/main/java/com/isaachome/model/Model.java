@@ -10,11 +10,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 import lombok.Data;
 
 @Entity
 @Data
+@NamedQuery(
+	name = "Model.findAllModelsByType",
+	query = "SELECT m FROM Model m WHERE m.modelType.name = :name"
+		)
 public class Model {
 
 	@Id

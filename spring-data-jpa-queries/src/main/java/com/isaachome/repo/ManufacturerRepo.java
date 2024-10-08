@@ -17,4 +17,6 @@ public interface ManufacturerRepo extends JpaRepository<Manufacturer,Integer> {
 	List<Manufacturer> findByActive(Boolean active);
 	List<Manufacturer> findByActiveTrue();
 	List<Manufacturer> findByActiveFalse();
+	
+	List<Manufacturer> getAllThatSellModelOfType(String modelType);
 }

@@ -42,4 +42,9 @@ class ManufacturerTest {
 		assertNotNull(mans);
 		assertEquals(1, mans.size());
 	}
+	@Test
+	void testGetAllThatSellModelOfType() {
+		List<Manufacturer> mans = manufacturerRepo.getAllThatSellModelOfType("Electric");
+		assertNotNull(mans);
+	}
 }

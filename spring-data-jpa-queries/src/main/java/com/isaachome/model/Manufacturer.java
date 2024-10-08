@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,6 +20,12 @@ import lombok.Data;
 
 @Data
 @Entity
+@NamedNativeQuery(name = "Manufacturer.getAllThatSellModelOfType", 
+		query = "SELECT m.id, m.name, m.foundedDate, m.averageYearlySales, m.location_id as headquarters_id, m.active "
+	    + "FROM Manufacturer m "
+		+ "LEFT JOIN Model mod ON m.id = mod.manufacturer_id "
+		+ "LEFT JOIN ModelType mt ON mt.id = mod.modeltype_id "
+	    + "WHERE (mt.name = ?)", resultClass = Manufacturer.class)
 public class Manufacturer {
 
 	@Id

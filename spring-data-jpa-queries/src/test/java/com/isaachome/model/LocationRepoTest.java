@@ -2,13 +2,17 @@ package com.isaachome.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.util.List;
+
 import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.isaachome.model.Location;
+
 import com.isaachome.repo.LocationRepository;
+
 import lombok.extern.slf4j.Slf4j;
 
 

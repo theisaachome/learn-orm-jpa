@@ -44,5 +44,19 @@ class ModelRepoTest {
 		});
 	}
 	
+	@Test
+	void testGetModelsByPriceRangeAndWoodType() {
+		List<Model> models =modelRepo.queryByPriceRangeAndWoodTpe(BigDecimal.valueOf(1000L), BigDecimal.valueOf(2000L), "%"+"maple"+"%");
+		assertNotNull(models);
+		models.forEach(m->System.out.println(m.getName()));
+		assertEquals(3, models.size());
+	}
+	
+	@Test
+	void testGetModelsByType() {
+		List<Model> mods = modelRepo.findAllModelsByType("Electric");
+		assertEquals(4, mods.size());
+	}
+	
 
 }
