@@ -1,1 +1,0 @@
-INSERT INTO Teacher (id,first_name,last_name) VALUES (3,'Min Lwin','Zaw')

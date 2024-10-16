@@ -72,3 +72,16 @@ insert into model (id, name, manufacturer_id, modeltype_id, price, woodtype, yea
 insert into model (id, name, manufacturer_id, modeltype_id, price, woodtype, yearfirstmade, frets) values (7, 'ES-335', 2, 6, 2200, 'Maple and Rosewood', '1958-01-01', 22);
 insert into model (id, name, manufacturer_id, modeltype_id, price, woodtype, yearfirstmade, frets) values (8, 'Hummingbird', 2, 1, 900, 'Spruce and Mahogany', '1960-01-01', 20);
 insert into model (id, name, manufacturer_id, modeltype_id, price, woodtype, yearfirstmade, frets) values (9, 'Thunderbird', 2, 7, 1500, 'Mahogany', '1963-01-01', 22);
+
+
+
+INSERT INTO ITEM(id,name) VALUES (1,'Item-1');
+INSERT INTO ITEM(id,name) VALUES (2,'Item-2');
+INSERT INTO ITEM(id,name) VALUES (3,'Item-3');
+INSERT INTO ITEM(id,name) VALUES (4,'Item-4');
+
+INSERT INTO SHIPMENT(id,status) VALUES (1,'Shipped');
+INSERT INTO SHIPMENT(id,status) VALUES (2,'Completed');
+
+INSERT INTO SHIPMENT_ITEM(item_id,shipment_id) VALUES (1,1);
+INSERT INTO SHIPMENT_ITEM(item_id,shipment_id) VALUES (2,2);
