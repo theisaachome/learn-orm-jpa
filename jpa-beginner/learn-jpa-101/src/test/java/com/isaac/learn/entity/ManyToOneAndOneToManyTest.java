@@ -1,5 +1,8 @@
 package com.isaac.learn.entity;
 
+import com.isaac.learn.onetomany.Author;
+import com.isaac.learn.onetomany.Book;
+import com.isaac.learn.onetomany.Comment;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -23,8 +26,30 @@ public class ManyToOneAndOneToManyTest {
         }
     }
 
+
+
     @Test
-    void manageBidirectionalOneToManyAssociation(){
+    void manageBidirectionalBookAndCommentOneToManyAssociation(){
+        var em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        // get  the primary key of Author and Book
+        Long commentId = createCommentForBook();
+        Long bookId = createBook();
+
+        // load Book and Author entities by primary key
+        var book = em.find(Book.class, bookId);
+        var comment = em.find(Comment.class, commentId);
+
+        // add the association
+        comment.setBook(book);
+        book.getComments().add(comment);
+        em.getTransaction().commit();
+
+    }
+
+
+    @Test
+    void manageBidirectionalAuthorAndBookOneToManyAssociationII(){
         var em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         // get  the primary key of Author and Book
@@ -42,7 +67,7 @@ public class ManyToOneAndOneToManyTest {
 
     }
     @Test
-    void useOneToManyAssociation(){
+    void queryOneToManyAssociation(){
 
         Long authorId = prepareTestData();
         var em = entityManagerFactory.createEntityManager();
@@ -90,5 +115,15 @@ public class ManyToOneAndOneToManyTest {
         em.getTransaction().commit();
         em.close();
         return author.getId();
+    }
+    private Long createCommentForBook() {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        var comment = new Comment();
+        comment.setContent("Very Good Book");
+        em.persist(comment);
+        em.getTransaction().commit();
+        em.close();
+        return comment.getId();
     }
 }

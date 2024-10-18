@@ -1,9 +1,9 @@
-package com.isaac.learn.entity;
+package com.isaac.learn.onetomany;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -12,7 +12,14 @@ public class Book {
     private Long id;
     private String title;
     @ManyToOne
+    @JoinTable(name = "author_book",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id")
+    )
     private Author author;
+
+    @OneToMany(mappedBy = "book")
+    private List<Comment> comments = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -36,5 +43,13 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

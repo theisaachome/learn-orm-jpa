@@ -1,4 +1,4 @@
-package com.isaac.learn.entity;
+package com.isaac.learn.onetomany;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +14,7 @@ public class Author {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     private List<Book> books=new ArrayList<>();
 
     public Long getId() {
