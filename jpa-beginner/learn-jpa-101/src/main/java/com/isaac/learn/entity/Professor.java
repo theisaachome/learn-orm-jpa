@@ -3,7 +3,10 @@ package com.isaac.learn.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -14,6 +17,9 @@ public class Professor {
     private Long id;
     private String firstname;
     private String lastname;
+
+//    @OneToMany(mappedBy = "professor")
+//    private List<Course> courses = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -59,4 +65,12 @@ public class Professor {
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
+
+//    public List<Course> getCourses() {
+//        return courses;
+//    }
+//
+//    public void setCourses(List<Course> courses) {
+//        this.courses = courses;
+//    }
 }
