@@ -4,7 +4,7 @@ INSERT INTO professor (id, firstname, lastname, version) VALUES (3, 'Peter', 'Do
 INSERT INTO professor (id, firstname, lastname, version) VALUES (4, 'Marie', 'Doe', 0);
 
 INSERT INTO course (id, name, professor_id, version) VALUES (1, 'Course 1', 1, 0);
-INSERT INTO course (id, name, professor_id, version) VALUES (2, 'Course 2', 2, 0);
+INSERT INTO course (id, name, professor_id, version) VALUES (2, 'JPQL 2', 2, 0);
 INSERT INTO course (id, name, professor_id, version) VALUES (3, 'Course 3', 2, 0);
 INSERT INTO course (id, name, professor_id, version) VALUES (4, 'Course 4', 3, 0);
 INSERT INTO course (id, name, professor_id, version) VALUES (5, 'Course 5', 3, 0);

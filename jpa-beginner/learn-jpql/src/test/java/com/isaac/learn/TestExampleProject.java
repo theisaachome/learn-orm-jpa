@@ -1,8 +1,5 @@
 package com.isaac.learn;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.*;
 import lombok.extern.log4j.Log4j;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -58,12 +55,49 @@ class TestExampleProject {
     }
 
     @Test
+    void adhocJpqlFindAllCourseIdsAndNames(){
+        log.info("... adhocJpqlFindAllCourseIdsAndNames ...");
+        var em = emf.createEntityManager();
+        em.getTransaction().begin();
+        // create an adhoc query to select all courses
+        Query query = em.createQuery("SELECT c.id, c.name FROM Course c");
+        List<Object[]> results = query.getResultList();
+        Assertions.assertEquals(10,results.size());
+//        courses.forEach(c-> System.out.println(c.getName()));
+        for (Object[] r : results) {
+            log.info(r[0] + " - " + r[1]);
+        }
+        em.getTransaction().commit();
+    }
+
+    @Test
     void jpqlFindCourseByName(){
         log.info("... adhocJpqlFindCourseByName ...");
         var em = emf.createEntityManager();
         em.getTransaction().begin();
         TypedQuery<Course> query = em.createQuery("SELECT c FROM Course c WHERE c.name = :name", Course.class);
-        query.setParameter("name", "JPQL");
+        query.setParameter("name", "JPQL 2");
+        List<Course> courses = query.getResultList();
+        Assertions.assertNotNull(courses);
+        log.info(courses);
+        em.getTransaction().commit();
+    }
+    @Test
+    void adhocJpqlFindOneCourseByName(){
+        log.info("... adhocJpqlFindOneCourseByName ...");
+        var em = emf.createEntityManager();
+        em.getTransaction().begin();
+        TypedQuery<Course> query = em.createQuery("SELECT c FROM Course  c WHERE c.name LIKE :name ", Course.class);
+        query.setParameter("name", "Course 1%");
+        List<Course> courses = query.getResultList();
+        Assertions.assertEquals(2,courses.size());
+        for(Course course : courses){log.info(course.getName());}
+        em.getTransaction().commit();
+    }
+
+    @Test
+    void adhocJpqlFindCoursesByNameOrId(){
+
     }
 
 }
