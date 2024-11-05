@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jpa-university-project.iml" filepath="$PROJECT_DIR$/jpa-university-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-basic-mapping/learn-basic-mapping.iml" filepath="$PROJECT_DIR$/learn-basic-mapping/learn-basic-mapping.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-jpql.iml" filepath="$PROJECT_DIR$/learn-jpql.iml" />
     </modules>
   </component>

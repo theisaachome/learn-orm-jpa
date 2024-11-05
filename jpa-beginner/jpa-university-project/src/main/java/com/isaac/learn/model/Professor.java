@@ -2,6 +2,9 @@ package com.isaac.learn.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class Professor {
     @Id
@@ -10,6 +13,9 @@ public class Professor {
     private Long id;
     private String firstName;
     private String lastName;
+
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.MERGE,mappedBy = "professor")
+    private Set<Course> courses = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -29,5 +35,13 @@ public class Professor {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
 }

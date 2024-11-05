@@ -2,6 +2,9 @@ package com.isaac.learn.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class Student {
     @Id
@@ -12,6 +15,9 @@ public class Student {
     private String lastName;
     @Enumerated(EnumType.ORDINAL)
     private StudentStat state;
+
+    @ManyToMany
+    private Set<Course> courses = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -40,4 +46,13 @@ public class Student {
     public void setState(StudentStat studentStat) {
         this.state = studentStat;
     }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
+    }
+
 }
