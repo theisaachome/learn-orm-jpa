@@ -6,7 +6,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@NamedQuery(name = Student.QUERY_STUDENT_BY_FIRSTNAME_AND_LASTNAME,
+        query = "SELECT s FROM Student s WHERE s.firstName =:"+ Student.PARAM_FIRSTNAME + " and s.lastName=:"+Student.PARAM_LASTNAME)
 public class Student {
+
+    public static final  String QUERY_STUDENT_BY_FIRSTNAME_AND_LASTNAME = "query.studentByFirstnameAndLastname";
+    public static final String PARAM_FIRSTNAME = "firstName";
+    public static final String PARAM_LASTNAME = "lastName";
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "student_seq")
     @SequenceGenerator(name = "student_seq",sequenceName = "student_seq")
